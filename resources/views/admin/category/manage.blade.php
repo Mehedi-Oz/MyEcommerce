@@ -1,0 +1,46 @@
+@extends('admin.master')
+
+@section('title')
+    Manage Category
+@endsection
+
+@section('body')
+    <div class="row mt-3">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Data Table</h4>
+                <h6 class="card-subtitle">Data table example</h6>
+                <div class="table-responsive m-t-40">
+                    <table id="myTable" class="table table-striped border">
+                        <thead>
+                            <tr>
+                                <th>Sl No</th>
+                                <th>Category Name</th>
+                                <th>Category Description</th>
+                                <th>Category Image</th>
+                                <th>Publication Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                                <td>
+                                    <a href="" class="btn btn-sm btn-success">
+                                        <i class="ti-agenda"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+@endsection
