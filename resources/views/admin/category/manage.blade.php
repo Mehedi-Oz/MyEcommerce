@@ -34,6 +34,9 @@
                                     <a href="" class="btn btn-sm btn-success">
                                         <i class="ti-agenda"></i>
                                     </a>
+                                    <a href="" class="btn btn-sm btn-danger">
+                                        <i class="ti-trash"></i>
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>

@@ -10,7 +10,11 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Add Category</h4>
-                    <form class="form-horizontal p-t-20">
+                    <p class="btn-success">{{ session('messageF') }}</p>
+
+                    <form class="form-horizontal p-t-20" action="{{ route('category.new') }}" method="POST">
+                        @csrf
+
                         <div class="form-group row">
                             <label for="exampleInputuname3" class="col-sm-3 control-label">
                                 Category Name
