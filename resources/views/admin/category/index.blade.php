@@ -12,7 +12,8 @@
                     <h4 class="card-title">Add Category</h4>
                     <p class="btn-success">{{ session('messageF') }}</p>
 
-                    <form class="form-horizontal p-t-20" action="{{ route('category.new') }}" method="POST">
+                    <form class="form-horizontal p-t-20" action="{{ route('category.new') }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -38,7 +39,7 @@
                             <label class="form-label col-sm-3 control-label" for="web">Category Image<span
                                     class="text-danger">*</span></label>
                             <div class="col-sm-9">
-                                <input type="file" id="input-file-now-custom-1" class="dropify" />
+                                <input type="file" id="input-file-now-custom-1" class="dropify" name="image" />
                             </div>
                         </div>
                         <div class="form-group row">

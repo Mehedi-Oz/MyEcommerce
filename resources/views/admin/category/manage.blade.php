@@ -24,21 +24,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>
-                                    <a href="" class="btn btn-sm btn-success">
-                                        <i class="ti-agenda"></i>
-                                    </a>
-                                    <a href="" class="btn btn-sm btn-danger">
-                                        <i class="ti-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            @foreach ($categories as $category)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $category->name }}</td>
+                                    <td>{{ $category->description }}</td>
+                                    <td>
+                                        <input type="image" src="{{ asset($category->image) }}" alt=""
+                                            style="height: 50px; width: 50px;">
+                                    </td>
+                                    <td>
+                                        {{ $category->status == 1 ? 'Published' : 'Unpublished' }}
+                                    </td>
+                                    <td>
+                                        <a href="" class="btn btn-sm btn-success">
+                                            <i class="ti-agenda"></i>
+                                        </a>
+                                        <a href="" class="btn btn-sm btn-danger">
+                                            <i class="ti-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -15,18 +15,23 @@ class CategoryController extends Controller
 
     public function manage()
     {
-        return view("admin.category.manage");
+        return view("admin.category.manage", [
+            'categories' => Category::all()
+        ]);
     }
 
     public function store(Request $request)
     {
         Category::storeCategory($request);
-        return back()->with('message', 'Category added successfully!');
+        return back()->with('success', 'New Category Added to the Database Successfully!');
     }
 
-    public function edit()
-    {
 
+    public function edit($id)
+    {
+        return view("admin.category.edit", [
+            "category" => Category::find($id)
+        ]);
     }
 
     public function update()
