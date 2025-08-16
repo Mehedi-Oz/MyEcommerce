@@ -26,22 +26,24 @@ class CategoryController extends Controller
         return back()->with('success', 'New Category Added to the Database Successfully!');
     }
 
-
     public function edit($id)
     {
-        return view("admin.category.edit", [
-            "category" => Category::find($id)
+        return view('admin.category.edit', [
+            'category' => Category::find($id)
         ]);
     }
 
-    public function update()
-    {
 
+    public function update(Request $request, $id)
+    {
+        Category::updateCategory($request, $id);
+        return back()->with('success', 'Category Updated Successfully!');
     }
 
-    public function status()
+    public function status($id)
     {
-
+        Category::toggleStatus($id);
+        return back()->with("success", "Category Status Updated!");
     }
 
     public function delete()

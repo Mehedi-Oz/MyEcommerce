@@ -41,6 +41,35 @@ class Category extends Model
         return self::$imageUrl = self::$directory . self::$imageNewName;
     }
 
-    
+    public static function toggleStatus($id)
+    {
+        self::$category = Category::find($id);
+
+        if (self::$category->status == 1) {
+            self::$category->status = 2;
+        } else {
+            self::$category->status = 1;
+        }
+        self::$category->save();
+
+    }
+
+    public static function updateCategory($request, $id)
+    {
+        self::$category = Category::find($id);
+        self::$category->name = $request->name;
+        self::$category->description = $request->description;
+
+        if ($request->file('image')) {
+            if (self::$category->image && file_exists(self::$image->image)) {
+                unlink(self::$image->image);
+            }
+            self::$category->image = self::saveImage($request);
+        }
+
+        self::$category->status = $request->status;
+
+        self::$category->save();
+    }
 
 }

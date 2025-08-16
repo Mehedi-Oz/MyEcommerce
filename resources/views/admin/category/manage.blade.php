@@ -37,12 +37,32 @@
                                         {{ $category->status == 1 ? 'Published' : 'Unpublished' }}
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-success">
-                                            <i class="ti-agenda"></i>
+
+                                        <a href="{{ route('category.edit', ['id' => $category->id]) }}"
+                                            class="btn btn-sm btn-primary" title="Edit Category">
+                                            <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="" class="btn btn-sm btn-danger">
-                                            <i class="ti-trash"></i>
-                                        </a>
+
+                                        @if ($category->status == 1)
+                                            <a href="{{ route('category.status', ['id' => $category->id]) }}"
+                                                class="btn btn-sm btn-warning" title="Unpublish Category">
+                                                <i class="fa-solid fa-eye-slash"></i>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('category.status', ['id' => $category->id]) }}"
+                                                class="btn btn-sm btn-success" title="Publish Category">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
+                                        @endif
+
+                                        <form action="{{ route('category.delete') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $category->id }}">
+                                            <button type="submit" class="btn btn-sm btn-danger" title="Delete Category"
+                                                onclick="return confirm('Delete This Category? Action Cannot be Undone!')">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
