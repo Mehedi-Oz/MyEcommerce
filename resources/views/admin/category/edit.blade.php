@@ -16,7 +16,6 @@
                         method="POST" enctype="multipart/form-data">
                         @csrf
 
-
                         <div class="form-group row">
                             <label for="exampleInputuname3" class="col-sm-3 control-label">
                                 Category Name

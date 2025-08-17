@@ -61,8 +61,8 @@ class Category extends Model
         self::$category->description = $request->description;
 
         if ($request->file('image')) {
-            if (self::$category->image && file_exists(self::$image->image)) {
-                unlink(self::$image->image);
+            if (self::$category->image && file_exists(self::$category->image)) {
+                unlink(self::$category->image);
             }
             self::$category->image = self::saveImage($request);
         }
@@ -70,6 +70,10 @@ class Category extends Model
         self::$category->status = $request->status;
 
         self::$category->save();
+    }
+
+    public static function deleteCategory($id){
+
     }
 
 }
