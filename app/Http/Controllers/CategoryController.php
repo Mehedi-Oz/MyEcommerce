@@ -22,8 +22,11 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
+        // return $request->all();
+
+        
         Category::storeCategory($request);
-        return back()->with('success', 'New Category Added to the Database Successfully!');
+        return back()->with('message', 'New Category Added to the Database Successfully!');
     }
 
     public function edit($id)
@@ -37,17 +40,17 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         Category::updateCategory($request, $id);
-        return back()->with('success', 'Category Updated Successfully!');
+        return back()->with('message', 'Category Updated Successfully!');
     }
 
     public function status($id)
     {
         Category::toggleStatus($id);
-        return back()->with("success", "Category Status Updated!");
+        return back()->with("message", "Category Status Updated!");
     }
-
-    public function delete()
+    public function delete(Request $request)
     {
-
+        Category::deleteCategory($request);
+        return back()->with("message", "Category Deleted!");
     }
 }

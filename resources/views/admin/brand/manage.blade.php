@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-    Manage Category
+    Manage Brand
 @endsection
 
 @section('body')
@@ -17,50 +17,50 @@
                         <thead>
                             <tr>
                                 <th>Sl No</th>
-                                <th>Category Name</th>
-                                <th>Category Description</th>
-                                <th>Category Image</th>
+                                <th>Brand Name</th>
+                                <th>Brand Description</th>
+                                <th>Brand Image</th>
                                 <th>Publication Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach ($categories as $category)
+                            @foreach ($brands as $brand)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $category->name }}</td>
-                                    <td class="style="height: 70px; width: 70px;  align="justify";>{{ $category->description }}</td>
+                                    <td>{{ $brand->name }}</td>
+                                    <td class="style="height: 70px; width: 70px;  align="justify";>{{ $brand->description }}</td>
                                     <td>
-                                        <input type="image" src="{{ asset($category->image) }}" alt="{{ $category->name }}"
+                                        <input type="image" src="{{ asset($brand->image) }}" alt="{{ $brand->name }}"
                                             style="height: 50px; width: 50px;">
                                     </td>
                                     <td>
-                                        {{ $category->status == 1 ? 'Published' : 'Unpublished' }}
+                                        {{ $brand->status == 1 ? 'Published' : 'Unpublished' }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('category.edit', ['id' => $category->id]) }}"
-                                            class="btn btn-sm btn-primary" title="Edit Category">
+                                        <a href="{{ route('brand.edit', ['id' => $brand->id]) }}"
+                                            class="btn btn-sm btn-primary" title="Edit Brand">
                                             <i class="fa fa-edit"></i>
                                         </a>
 
-                                        @if ($category->status == 1)
-                                            <a href="{{ route('category.status', ['id' => $category->id]) }}"
-                                                class="btn btn-sm btn-warning" title="Unpublish Category">
+                                        @if ($brand->status == 1)
+                                            <a href="{{ route('brand.status', ['id' => $brand->id]) }}"
+                                                class="btn btn-sm btn-warning" title="Unpublish Brand">
                                                 <i class="fa-solid fa-eye-slash"></i>
                                             </a>
                                         @else
-                                            <a href="{{ route('category.status', ['id' => $category->id]) }}"
-                                                class="btn btn-sm btn-success" title="Publish Category">
+                                            <a href="{{ route('brand.status', ['id' => $brand->id]) }}"
+                                                class="btn btn-sm btn-success" title="Publish Brand">
                                                 <i class="fa-solid fa-eye"></i>
                                             </a>
                                         @endif
 
-                                        <form action="{{ route('category.delete') }}" method="POST">
+                                        <form action="{{ route('brand.delete') }}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="id" value="{{ $category->id }}">
-                                            <button type="submit" class="btn btn-sm btn-danger" title="Delete Category"
-                                                onclick="return confirm('Delete This Category? Action Cannot be Undone!')">
+                                            <input type="hidden" name="id" value="{{ $brand->id }}">
+                                            <button type="submit" class="btn btn-sm btn-danger" title="Delete Brand"
+                                                onclick="return confirm('Delete This Brand? Action Cannot be Undone!')">
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
                                         </form>

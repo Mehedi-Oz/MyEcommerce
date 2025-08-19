@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Update Category</h4>
-                    <p class="btn-success">{{ session('messageF') }}</p>
+                    <p class="btn-success">{{ session('message') }}</p>
 
                     <form class="form-horizontal p-t-20" action="{{ route('category.update', ['id' => $category->id]) }}"
                         method="POST" enctype="multipart/form-data">

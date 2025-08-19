@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-    Add Category
+    Add Brand
 @endsection
 
 @section('body')
@@ -9,26 +9,26 @@
         <div class="col-lg-12 mt-4">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Add Category</h4>
+                    <h4 class="card-title">Add New Brand</h4>
                     <p class="btn-success">{{ session('message') }}</p>
 
-                    <form class="form-horizontal p-t-20" action="{{ route('category.new') }}" method="POST"
+                    <form class="form-horizontal p-t-20" action="{{ route('brand.new') }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
                             <label for="exampleInputuname3" class="col-sm-3 control-label">
-                                Category Name
+                                Brand Name
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="exampleInputuname3"
-                                    placeholder="category name" name="name">
+                                    placeholder="brand name" name="name">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="exampleInputEmail3" class="col-sm-3 control-label">
-                                Category Description
+                                Brand Description
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="form-label col-sm-3 control-label" for="web">Category Image<span
+                            <label class="form-label col-sm-3 control-label" for="web">Brand Image<span
                                     class="text-danger">*</span></label>
                             <div class="col-sm-9">
                                 <input type="file" id="input-file-now-custom-1" class="dropify" name="image" />
@@ -56,7 +56,7 @@
                         <div class="form-group row m-b-0">
                             <div class="offset-sm-3 col-sm-9">
                                 <button type="submit" class="btn btn-success waves-effect waves-light text-white">Add New
-                                    Category</button>
+                                    Brand</button>
                             </div>
                         </div>
                     </form>

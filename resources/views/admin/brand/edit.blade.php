@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-    Add Category
+    Update Brand
 @endsection
 
 @section('body')
@@ -9,54 +9,58 @@
         <div class="col-lg-12 mt-4">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Add Category</h4>
+                    <h4 class="card-title">Update Brand</h4>
                     <p class="btn-success">{{ session('message') }}</p>
 
-                    <form class="form-horizontal p-t-20" action="{{ route('category.new') }}" method="POST"
-                        enctype="multipart/form-data">
+                    <form class="form-horizontal p-t-20" action="{{ route('brand.update', ['id' => $brand->id]) }}"
+                        method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
                             <label for="exampleInputuname3" class="col-sm-3 control-label">
-                                Category Name
+                                Brand Name
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="exampleInputuname3"
-                                    placeholder="category name" name="name">
+                                    placeholder="Brand name" name="name" value="{{ $brand->name }}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="exampleInputEmail3" class="col-sm-3 control-label">
-                                Category Description
+                                Brand Description
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" id="exampleInputEmail3" rows="10" name="description" placeholder="description"></textarea>
+                                <textarea class="form-control" id="exampleInputEmail3" rows="10" name="description" placeholder="description">{{ $brand->description }}"</textarea>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="form-label col-sm-3 control-label" for="web">Category Image<span
+                            <label class="form-label col-sm-3 control-label" for="web">Brand Image<span
                                     class="text-danger">*</span></label>
                             <div class="col-sm-9">
                                 <input type="file" id="input-file-now-custom-1" class="dropify" name="image" />
+                                <img src="{{ asset($brand->image) }}" alt=""
+                                    style="height: 100px; width: 100px; margin-top: 10px">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputPassword5" class="col-sm-3 control-label">publication Status<span
+                            <label class="col-sm-3 control-label">publication Status<span
                                     class="text-danger">*</span></label>
                             <div class="col-sm-9">
-                                <label for="" class="me-3"><input type="radio" name="status"
-                                        value="1">Published</label>
-                                <label for=""><input type="radio" name="status"
-                                        value="2">Unpublished</label>
+                                <label for="" class="me-3">
+                                    <input type="radio" name="status" value="1"
+                                        {{ $brand->status == 1 ? 'checked' : '' }}>Published</label>
+                                <label for="">
+                                    <input type="radio" name="status" value="2"
+                                        {{ $brand->status == 2 ? 'checked' : '' }}>Unpublished</label>
                             </div>
                         </div>
 
                         <div class="form-group row m-b-0">
                             <div class="offset-sm-3 col-sm-9">
-                                <button type="submit" class="btn btn-success waves-effect waves-light text-white">Add New
-                                    Category</button>
+                                <button type="submit" class="btn btn-success waves-effect waves-light text-white">Update
+                                    Brand</button>
                             </div>
                         </div>
                     </form>

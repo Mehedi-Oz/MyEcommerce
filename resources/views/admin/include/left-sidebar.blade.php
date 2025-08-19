@@ -26,8 +26,8 @@
                         <span class="hide-menu">Sub Category</span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">Add Sub Category</a></li>
-                        <li><a href="#">Manage Sub Category</a></li>
+                        <li><a href="{{route('subcategory.add')}}">Add Sub Category</a></li>
+                        <li><a href="{{route('subcategory.manage')}}">Manage Sub Category</a></li>
                     </ul>
                 </li>
                 <li>
@@ -36,8 +36,8 @@
                         <span class="hide-menu">Brand Module</span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">Add Brand</a></li>
-                        <li><a href="#">Manage Brand</a></li>
+                        <li><a href="{{route('brand.add')}}">Add Brand</a></li>
+                        <li><a href="{{route('brand.manage')}}">Manage Brand</a></li>
                     </ul>
                 </li>
                 <li>
